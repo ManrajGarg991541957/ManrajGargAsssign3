@@ -36,4 +36,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.101" />
 
+    <ImageView
+        android:layout_width="201dp"
+        android:layout_height="163dp"
+        android:src="@drawable/raptors"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.347"></ImageView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
