@@ -14,9 +14,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import manraj.garg.s991541957.ui.main.CanvasView;
 import manraj.garg.s991541957.ui.main.SectionsPagerAdapter;
 
-public class MainActivity extends AppCompatActivity {
+public class ManrajActivity extends AppCompatActivity {
+
+    private CanvasView customCanvas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,4 +54,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
