@@ -19,7 +19,7 @@ import manraj.garg.s991541957.R;
 public class ManrajFragment extends Fragment {
 
     private PageViewModel pageViewModel;
-
+    private CanvasView customCanvas;
     private static final String TAG = "Manraj";
 
     public ManrajFragment(){
@@ -37,20 +37,19 @@ public class ManrajFragment extends Fragment {
        pageViewModel.setIndex(TAG);
     }
 
+    public void clearCanvas(View view)
+    {
+        customCanvas.wipeCanvas();
+    }
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_main, container, false);
         final TextView textView = root.findViewById(R.id.section_label);
+        customCanvas = (CanvasView) root.findViewById(R.id.signature_canvas);
 
-        pageViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-
-                textView.setText(s);
-            }
-        });
         return root;
     }
 }
