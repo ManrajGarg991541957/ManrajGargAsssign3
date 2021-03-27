@@ -12,12 +12,27 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
          />
+    <LinearLayout
+        android:id="@+id/linLayout2"
+        android:layout_width="324dp"
+        android:layout_height="312dp"
+        android:orientation="vertical">
+
+
+
+        </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linLayout"
         android:layout_width="324dp"
         android:layout_height="312dp"
         android:orientation="vertical">
+
+        <Button
+            android:id="@+id/ButtonCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Make Call"/>
 
         <LinearLayout
             android:id="@+id/ButtonRow"

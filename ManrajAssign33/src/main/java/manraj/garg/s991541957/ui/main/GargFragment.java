@@ -1,9 +1,17 @@
 package manraj.garg.s991541957.ui.main;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -13,6 +21,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import manraj.garg.s991541957.ManrajActivity;
 import manraj.garg.s991541957.R;
 
 /**
@@ -26,6 +35,8 @@ public class GargFragment extends Fragment implements View.OnClickListener{
     private static final String TAG = "Garg";
     AnimationDrawable mframeAnimation = null;
     private PageViewModel pageViewModel;
+    final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
+    String number = "1234567890";
     ImageView img;
 
     public GargFragment(){
@@ -58,11 +69,16 @@ public class GargFragment extends Fragment implements View.OnClickListener{
         final Button offButton = (Button) root.findViewById(R.id.ButtonStop);
         offButton.setOnClickListener((View.OnClickListener) this);
 
+        //Handle Call Button
+        final Button callButton = (Button) root.findViewById(R.id.ButtonCall);
+        callButton.setOnClickListener((View.OnClickListener) this);
+
         return root;
     }
 
     @Override
     public void onClick(View v) {
+
         switch(v.getId())
         {
             case R.id.ButtonStart:
@@ -71,9 +87,24 @@ public class GargFragment extends Fragment implements View.OnClickListener{
             case R.id.ButtonStop:
                 stopAnimation();
                 break;
+            case R.id.ButtonCall:
+                    if (ContextCompat.checkSelfPermission(getContext(), android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                        requestPermissions(new String[]{Manifest.permission.CALL_PHONE},
+                                REQUEST_CODE_ASK_PERMISSIONS);
+                    }else{
+                        call();
+                    }
+                    break;
         }
     }
 
+
+    public void call()
+    {
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel: 1234567890"));
+        getActivity().startActivity(intent);
+    }
 
     private void startAnimation()
     {
@@ -102,6 +133,18 @@ public class GargFragment extends Fragment implements View.OnClickListener{
     {
         mframeAnimation.stop();
         mframeAnimation.setVisible(false,false);
+    }
 
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_ASK_PERMISSIONS:
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                  call();
+                }
+                break;
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
     }
 }
