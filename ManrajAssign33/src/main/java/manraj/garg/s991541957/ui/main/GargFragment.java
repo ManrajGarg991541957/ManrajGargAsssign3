@@ -36,7 +36,7 @@ public class GargFragment extends Fragment implements View.OnClickListener{
     AnimationDrawable mframeAnimation = null;
     private PageViewModel pageViewModel;
     final private int REQUEST_CODE_ASK_PERMISSIONS = 123;
-    String number = "1234567890";
+    String number = getString(R.string.callNumber);
     ImageView img;
 
     public GargFragment(){
@@ -102,7 +102,7 @@ public class GargFragment extends Fragment implements View.OnClickListener{
     public void call()
     {
         Intent intent = new Intent(Intent.ACTION_CALL);
-        intent.setData(Uri.parse("tel: 1234567890"));
+        intent.setData(Uri.parse(getString(R.string.telNumber)));
         getActivity().startActivity(intent);
     }
 
