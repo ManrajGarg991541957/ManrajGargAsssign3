@@ -1,3 +1,7 @@
+<!--
+Manraj Garg s991541957
+This is assignment 3 which displays the use of tab layout, animations, permissions, and canvas
+ -->
 <resources>
     <string name="app_name">ManrajAssign3</string>
     <string name="tab_text_1">Manraj</string>

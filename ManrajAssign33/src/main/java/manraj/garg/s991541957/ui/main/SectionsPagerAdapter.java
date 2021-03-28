@@ -1,3 +1,7 @@
+/*
+        Manraj Garg s991541957
+        This is assignment 3 which displays the use of tab layout, animations, permissions, and canvas
+*/
 package manraj.garg.s991541957.ui.main;
 
 import android.content.Context;

@@ -1,3 +1,7 @@
+<!--
+Manraj Garg s991541957
+This is assignment 3 which displays the use of tab layout, animations, permissions, and canvas
+ -->
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.ManrajAssign3" parent="Theme.MaterialComponents.DayNight.DarkActionBar">

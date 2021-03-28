@@ -1,3 +1,7 @@
+<!--
+Manraj Garg s991541957
+This is assignment 3 which displays the use of tab layout, animations, permissions, and canvas
+ -->
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
